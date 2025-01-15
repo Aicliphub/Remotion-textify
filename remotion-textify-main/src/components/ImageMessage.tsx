@@ -29,8 +29,8 @@ export const ImageMessage: React.FC<
     img.src = props.url;
     img.onload = () => {
       if (isMounted) {
-        const maxWidth = 800; // Maximum width allowed
-        const maxHeight = 700; // Maximum height allowed
+        const maxWidth = props.appLayout.aspectRatio === "9:16" ? 800 : 1000; // Maximum width allowed
+        const maxHeight = props.appLayout.aspectRatio === "9:16" ? 700 : 600; // Maximum height allowed
         const aspectRatio = img.naturalWidth / img.naturalHeight;
 
         let width = img.naturalWidth;
